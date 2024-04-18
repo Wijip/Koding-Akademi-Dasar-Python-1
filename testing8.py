@@ -1,0 +1,90 @@
+#disini saya menjadikan variabel tiap element / angka di matriks
+b11=8
+b12=2
+b13=8
+b21=-1
+b22=-1
+b23=8
+b31=1
+b32=8
+b33=6
+print()
+#Mengecek bentuk Matriks
+print(b11,b12,b13)
+print(b21,b22,b23)
+print(b31,b32,b33)
+print()
+#Masukkan Variabel diatas dalam bentuk Determinan Sarrus
+print("metode Det. sarrus :")
+print(b11,b12,b13,"|",b11,b12)
+print(b21,b22,b23,"|",b21,b22)
+print(b31,b32,b33,"|",b31,b32)
+#lalu hitunglah sesuai dengan rumus Det. Sarrus
+H1=(int(b11)*int(b22)*int(b33))
+H2=(int(b12)*int(b23)*int(b31))
+H3=(int(b13)*int(b21)*int(b32))
+H4=(int(b31)*int(b22)*int(b13))
+H5=(int(b32)*int(b23)*int(b11))
+H6=(int(b33)*int(b21)*int(b12))
+HA=int(H1)+int(H2)+int(H3)
+HB=int(H4)+int(H5)+int(H6)
+HX=int(HA)-int(HB)
+print()
+print("Hasil metode Det. Sarrus :", HX)
+print()
+#sekarang menggunakan metode minor untuk menemukan Kofaktor dan Adjoint nya
+print("metode Minor :")
+print(b11,b12,b13)
+print(b21,b22,b23)
+print(b31,b32,b33)
+print()
+print("A.D-B.C")
+A11=(int(b22)*int(b33))-(int(b23)*int(b32))
+print("A11=",b22,"x",b33,"-",b23,"x",b32,"=",A11)
+A12=(int(b21)*int(b33))-(int(b23)*int(b31))
+print("A12=",b21,"x",b33,"-",b23,"x",b31,"=",A12)
+A13=(int(b21)*int(b32))-(int(b22)*int(b31))
+print("A13=",b21,"x",b32,"-",b22,"x",b31,"=",A13)
+A21=(int(b12)*int(b33))-(int(b13)*int(b32))
+print("A21=",b12,"x",b33,"-",b13,"x",b32,"=",A21)
+A22=(int(b11)*int(b33))-(int(b13)*int(b31))
+print("A22=",b11,"x",b33,"-",b13,"x",b31,"=",A22)
+A23=(int(b11)*int(b32))-(int(b12)*int(b31))
+print("A23=",b11,"x",b32,"-",b12,"x",b31,"=",A23)
+A31=(int(b12)*int(b23))-(int(b13)*int(b22))
+print("A31=",b12,"x",b23,"-",b13,"x",b22,"=",A31)
+A32=(int(b11)*int(b23))-(int(b13)*int(b21))
+print("A32=",b11,"x",b23,"-",b13,"x",b21,"=",A32)
+A33=(int(b11)*int(b22))-(int(b12)*int(b21))
+print("A33=",b11,"x",b22,"-",b12,"x",b21,"=",A33)
+print()
+#Lalu didapatkan lah matriks baru yang akan di kofaktor kan
+print(A11,A12,A13)
+print(A21,A22,A23)
+print(A31,A32,A33)
+print()
+print("Metode Kofaktor :")
+print()
+print(A11,A12*(-1),A13)
+print(A21*(-1),A22,A23*(-1))
+print(A31,A32*(-1),A33)
+print()
+#lalu Adjoint nya
+print("Adj.=")
+print(A11,A21*(-1),A31)
+print(A12*(-1),A22,A32*(-1))
+print(A13,A23*(-1),A33)
+print()
+#Sekarang bisa mulai mencari Invers Matriks tersebut
+print("invers A**-1 = 1/Det. Sarrus X Adj. atau Adj./Det. Sarrus")
+print(A11,A21*(-1),A31,"|")
+print(A12*(-1),A22,A32*(-1),"|","/", HX)
+print(A13,A23*(-1),A33,"|")
+print()
+print(A11,"/",int(HX),"|",A21*(-1),"/",int(HX),"|",A31,"/",int(HX))
+print(A12*(-1),"/",int(HX),"|",A22,"/",int(HX),"|",A32*(-1),"/",int(HX))
+print(A13,"/",int(HX),"|",A23*(-1),"/",int(HX),"|",A33,"/",int(HX))
+print()
+print(A11/int(HX),A21*(-1)/int(HX),A31/int(HX))
+print(A12*(-1)/int(HX),A22/int(HX),A32*(-1)/int(HX))
+print(A13/int(HX),A23*(-1)/int(HX),A33/int(HX))
